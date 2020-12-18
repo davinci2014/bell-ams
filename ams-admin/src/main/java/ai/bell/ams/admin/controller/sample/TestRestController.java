@@ -2,13 +2,9 @@ package ai.bell.ams.admin.controller.sample;
 
 import ai.bell.ams.dal.entity.department.DepartmentMapper;
 import ai.bell.ams.dal.entity.department.DepartmentPO;
-import ai.bell.ams.dal.entity.sample.SampleMapper;
-import ai.bell.ams.dal.entity.sample.SamplePO;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;

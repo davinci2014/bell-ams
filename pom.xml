@@ -20,8 +20,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <java.version>1.8</java.version>
-        <springboot.version>2.4.0</springboot.version>
+        <spring-boot.version>2.4.0</spring-boot.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-pmd-plugin.version>3.14.0</maven-pmd-plugin.version>
 
         <bell-oa-client-starter.version>3.0.5</bell-oa-client-starter.version>
 
@@ -31,11 +32,27 @@
         <xxl-job.version>2.2.0</xxl-job.version>
     </properties>
 
+    <!-- 全局通用依赖 -->
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.1-jre</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
+            <version>${maven-pmd-plugin.version}</version>
         </dependency>
     </dependencies>
 
@@ -44,7 +61,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${springboot.version}</version>
+                <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -61,6 +78,21 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
+            </plugin>
+            <!-- 当前使用默认规则, 更多参考[https://pmd.github.io/latest/pmd_rules_java.html] -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>${maven-pmd-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>pmd-check-package</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
