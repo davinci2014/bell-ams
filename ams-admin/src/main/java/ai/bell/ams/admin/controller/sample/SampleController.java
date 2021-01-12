@@ -28,7 +28,8 @@ public class SampleController {
         list.add("l2");
         model.addAttribute("f_list", list);
 
-        return "/sample/index";
+        throw new SecurityException("测试名称");
+//        return "/sample/index";
     }
 
 }

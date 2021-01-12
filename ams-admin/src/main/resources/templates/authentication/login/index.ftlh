@@ -26,7 +26,7 @@
                     <input type="password" class="layui-input" name="password" placeholder="请输入密码" autocomplete="off">
                 </div>
                 <div class="layui-form-item">
-                    <button class="layui-btn layui-btn-fluid" type="submit">登录</button>
+                    <button class="layui-btn layui-btn-fluid" type="submit" lay-submit lay-filter="username-password-login">登录</button>
                 </div>
                 <div class="layui-form-item">
                     <a href="javascript:" id="oauth2-login-qq">
@@ -46,8 +46,8 @@
 <script type="text/javascript">
     "use strict";
 
-    layui.use(["jquery", "element", "layer"], function () {
-        let $ = layui.jquery, element = layui.element, layer = layui.layer;
+    layui.use(["jquery", "element", "layer", "form"], function () {
+        let $ = layui.jquery, element = layui.element, layer = layui.layer, form = layui.form;
 
         bindEvents();
 
@@ -65,7 +65,21 @@
                 layer.confirm("Oauth2 QQ", {
                     btn: ["关闭"]
                 });
-            })
+            });
+
+            form.on("submit(username-password-login)", function(data){
+                console.log(data.elem);
+                console.log(data.form);
+                console.log(data.field);
+
+                return false;
+            });
+        }
+        
+
+        function login() {
+            // "/authentication/login"
+
         }
     });
 </script>

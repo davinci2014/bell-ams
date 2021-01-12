@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- *
  * @author haoyun.zheng
  */
 @Data
@@ -17,16 +16,10 @@ import lombok.EqualsAndHashCode;
 public class EmployeeAccountPO extends AbstractEntity {
 
     /**
-     * 账户ID
-     * 账户自增主键
-     */
-    @TableId(type = IdType.AUTO)
-    private Long id;
-
-    /**
      * 员工ID
-     * 唯一, 非空
+     * 主键, 同员工ID
      */
+    @TableId(type = IdType.INPUT)
     private Long employeeId;
 
     /**

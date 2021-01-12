@@ -100,6 +100,7 @@ public class ShiroConfig {
 
         // 配置可访问的通用接口
         filterChainMap.put("/authentication/login/index.html", ShiroFilterConst.ANONYMOUS);
+        filterChainMap.put("/authentication/login", ShiroFilterConst.ANONYMOUS);
 
         // 配置自定义的可访问接口
         for (String anonymous: shiroConfigProperties.getAnonymous()) {

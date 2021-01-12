@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author haoyun.zheng
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"ai.bell.ams"})
 public class AmsAdminApplication {
 
     public static void main(String[] args) {

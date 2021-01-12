@@ -17,6 +17,20 @@
             <artifactId>ams-dal</artifactId>
             <version>2.0.0-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>ai.bell.ams</groupId>
+            <artifactId>ams-spi</artifactId>
+            <version>2.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- 权限管理 Shiro -->
+        <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-spring -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.7.0</version>
+        </dependency>
     </dependencies>
 
 </project>

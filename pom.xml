@@ -14,6 +14,8 @@
         <module>ams-spi</module>
         <module>ams-biz</module>
         <module>ams-dal</module>
+        <module>ams-web</module>
+        <module>nuts-lang</module>
     </modules>
 
     <properties>
@@ -30,10 +32,16 @@
         <mybatis-plus.version>3.4.1</mybatis-plus.version>
         <druid.version>1.2.2</druid.version>
         <xxl-job.version>2.2.0</xxl-job.version>
+        <fluent-validator-spring.version>1.0.9</fluent-validator-spring.version>
     </properties>
 
     <!-- 全局通用依赖 -->
     <dependencies>
+        <dependency>
+            <groupId>ind.nuts.lang</groupId>
+            <artifactId>nuts-lang</artifactId>
+            <version>2.0.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -48,11 +56,16 @@
             <artifactId>guava</artifactId>
             <version>30.1-jre</version>
         </dependency>
-
         <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-pmd-plugin</artifactId>
-            <version>${maven-pmd-plugin.version}</version>
+            <groupId>com.baidu.unbiz</groupId>
+            <artifactId>fluent-validator-spring</artifactId>
+            <version>${fluent-validator-spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

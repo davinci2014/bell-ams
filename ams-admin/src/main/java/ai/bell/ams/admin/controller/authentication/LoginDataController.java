@@ -1,13 +1,15 @@
 package ai.bell.ams.admin.controller.authentication;
 
 import ai.bell.ams.admin.controller.authentication.fb.UsernamePasswordFB;
-import org.springframework.http.HttpHeaders;
+import ai.bell.ams.biz.service.authentication.LoginService;
+import ind.nuts.lang.exctption.ServiceException;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
-import java.lang.*;
 
 
 /**
@@ -15,12 +17,21 @@ import java.lang.*;
  *
  * @author haoyun.zheng
  */
+@Slf4j
 @RestController
 public class LoginDataController {
 
+    @Autowired
+    private LoginService loginService;
+
     @PostMapping("/authentication/login")
-    public ResponseEntity<?> login(@RequestHeader(HttpHeaders.AUTHORIZATION) String authorization,
-                                   @RequestBody UsernamePasswordFB usernamePasswordFB) {
+    public ResponseEntity<?> login(@RequestBody @Validated UsernamePasswordFB usernamePassword) {
+        try {
+            loginService.login(usernamePassword.getUsername(), usernamePassword.getPassword());
+        } catch (ServiceException exp) {
+            log.error("", exp);
+        }
+
         return ResponseEntity.ok().build();
     }
 
