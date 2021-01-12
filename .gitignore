@@ -169,5 +169,5 @@ pnpm-debug.log*
 ######################
 HELP.md
 application-local.properties
-/src/main/resources/static/
+/src/main/resources/static/*
 /src/main/resources/templates/index.html
