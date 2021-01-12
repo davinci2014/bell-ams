@@ -12,6 +12,8 @@ import java.util.*;
 @Controller
 public class SampleController {
 
+
+
     @GetMapping("/sample/index.html")
     public String index(Model model) {
         model.addAttribute("f_string", "freemarker");

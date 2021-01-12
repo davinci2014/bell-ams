@@ -14,8 +14,7 @@
         <module>ams-spi</module>
         <module>ams-biz</module>
         <module>ams-dal</module>
-        <module>ams-web</module>
-        <module>nuts-lang</module>
+        <module>ams-vue</module>
     </modules>
 
     <properties>
@@ -24,7 +23,9 @@
         <java.version>1.8</java.version>
         <spring-boot.version>2.4.0</spring-boot.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
         <maven-pmd-plugin.version>3.14.0</maven-pmd-plugin.version>
+        <frontend-maven-plugin.version>1.11.0</frontend-maven-plugin.version>
 
         <bell-oa-client-starter.version>3.0.5</bell-oa-client-starter.version>
 
@@ -38,18 +39,9 @@
     <!-- 全局通用依赖 -->
     <dependencies>
         <dependency>
-            <groupId>ind.nuts.lang</groupId>
+            <groupId>ind.nuts</groupId>
             <artifactId>nuts-lang</artifactId>
-            <version>2.0.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
